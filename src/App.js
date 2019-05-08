@@ -4,11 +4,9 @@ import GameBoard from './components/GameBoard';
 import players from './players.json';
 
 function App() {
-  return(
+  return( 
     <div className="container">
-      <GameBoard>
-        { players.map( (p) => { return( <PlayerCard key={p.name} name={p.name} image={p.image} />) }) }
-      </GameBoard>
+      <GameBoard players={players} />
     </div>
   )
 }

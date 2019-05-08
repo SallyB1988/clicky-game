@@ -9,6 +9,7 @@ class PlayerCard extends React.Component {
 
   handleClick = () => {
     console.log(`${this.props.name} was clicked.`);
+    this.props.updateCount();
     this.setState({ clicked: true })
   }
 

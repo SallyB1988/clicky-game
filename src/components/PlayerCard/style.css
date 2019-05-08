@@ -1,0 +1,11 @@
+.wrapper {
+  background: #ECEFF1;
+  height: 200px;
+  padding: 10px;
+}
+
+.card-img {
+  /* display: flex; */
+  /* flex-flow: row wrap; */
+  height: 180px;
+}

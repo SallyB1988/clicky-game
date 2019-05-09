@@ -1,62 +1,62 @@
 [
   {
     "name": "boo",
-    "image": "/images/boo.png",
+    "image": "images/boo.png",
     "clicked": false
   },
   {
     "name": "luigi",
-    "image": "/images/luigi.png",
+    "image": "images/luigi.png",
     "clicked": false
   },
   {
     "name": "koopa",
-    "image": "/images/koopa.png",
+    "image": "./images/koopa.png",
     "clicked": false
   },
   {
     "name": "toad",
-    "image": "/images/toad.png",
+    "image": "./images/toad.png",
     "clicked": false
   },
   {
     "name": "toadette",
-    "image": "/images/toadette.png",
+    "image": "./images/toadette.png",
     "clicked": false
   },
   {
     "name": "bowser",
-    "image": "/images/bowser.png",
+    "image": "./images/bowser.png",
     "clicked": false
   },
   {
     "name": "mario",
-    "image": "/images/mario.png",
+    "image": "./images/mario.png",
     "clicked": false
   },
   {
     "name": "fish",
-    "image": "/images/fish.png",
+    "image": "./images/fish.png",
     "clicked": false
   },
   {
     "name": "squid",
-    "image": "/images/squid.png",
+    "image": "./images/squid.png",
     "clicked": false
   },
   {
     "name": "shyguy",
-    "image": "/images/shyguy.png",
+    "image": "./images/shyguy.png",
     "clicked": false
   },
   {
     "name": "yoshi",
-    "image": "/images/yoshi.png",
+    "image": "./images/yoshi.png",
     "clicked": false
   },
   {
     "name": "wario",
-    "image": "/images/wario.png",
+    "image": "./images/wario.png",
     "clicked": false
   }
   

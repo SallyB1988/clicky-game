@@ -2,5 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  border: 4px #4b9ee2 solid;
+  margin: 0 auto;
+}
+
+.modal-header {
+  background-color: rgba(24, 57, 148, 0.904);
+}
+
+.game-container {
+  background-color: green;
+  padding: 10px 30px;
 }

@@ -1,20 +1,25 @@
 import React from "react";
+import { Card, Image } from "react-bootstrap";
 import "./style.css";
 
 // PlayerCard renders an image
 function PlayerCard(props) {
-
-const  handleClick = () => {
+  const handleClick = () => {
     props.playerClicked(props.name);
     props.updateCount();
-  }
+  };
 
-    return (
-      <div className="card w-25 wrapper" onClick={handleClick}>
-        <img className="card-img" alt={props.name} src={props.image} />
-        <div><h2>{props.temp ? "true" : "false"}</h2></div>
-      </div>
-    )
+  return (
+    <Card bg="info" style={{ width: '10rem', margin: '5px auto' }} onClick={handleClick}>
+      <Card.Body>
+        <Image className="card-img" src={props.image} />
+
+        <Card.Text>
+          <h2>{props.temp ? "true" : "false"}</h2>
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  );
 }
 
 export default PlayerCard;

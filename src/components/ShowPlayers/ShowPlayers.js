@@ -1,12 +1,9 @@
 import React, { Fragment } from "react";
 import PlayerCard from "../PlayerCard";
-// import GameOver from "../GameOver";
 import "./style.css";
 
 // ShowPlayers renders a region for displaying cards for game
 function ShowPlayers(props) {
-  console.log('inside shwoplayers');
-  console.log(props.players);
   return (
     <Fragment>
       { props.players.map( (p) => {

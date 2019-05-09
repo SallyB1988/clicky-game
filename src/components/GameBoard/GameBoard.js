@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import PlayerCard from "../PlayerCard";
 import Modal from "react-bootstrap/Modal";
+import { Row, Col, Container } from "react-bootstrap";
 import ShowPlayers from "../ShowPlayers";
 import "./style.css";
 
@@ -13,7 +13,9 @@ class GameBoard extends Component {
       players: [],
       gameOver: false,
       gameWon: false,
-      topScore: 0
+      topScore: 0,
+      modalOpen: false,
+      modalContent: ''
     };
   }
 
@@ -21,7 +23,7 @@ class GameBoard extends Component {
     this.setState({ players: this.props.players });
   }
 
-   // return a random index number from an array
+  // return a random index number from an array
   getRandIndex = arr => {
     return Math.floor(Math.random() * arr.length);
   };
@@ -47,12 +49,17 @@ class GameBoard extends Component {
     }
   };
 
+  // Game Lost:
+  //    Set gameOver to true;
+  //    Set gameWon to false;
+  //    If game is lost, check if score is higher than previous highscore. If so, update it.
   gameLost = () => {
     let highScore =
       this.state.numClicked > this.state.topScore
         ? this.state.numClicked
         : this.state.topScore;
-    this.setState({ gameOver: true, gameWon: false, topScore: highScore });
+    let message = <h3 className="text-center">{this.state.gameWon ? "You Won!" : "You Lost!"}</h3>;
+    this.setState({ gameOver: true, gameWon: false, topScore: highScore, modalOpen: true, modalContent: message });
   };
 
   handleClickCount = () => {
@@ -64,63 +71,71 @@ class GameBoard extends Component {
     });
   };
 
-  handlePlayerClicked = (name) => {
+  handlePlayerClicked = name => {
     let playersCopy = this.state.players;
-    let newPlayers = playersCopy.map( (p) => {
-      if (p.name === name ){
+
+    let newPlayers = playersCopy.map(p => {
+      if (p.name === name) {
         if (p.clicked) {
           this.gameLost();
         }
         p.clicked = true;
       }
       return p;
-    })
-    this.setState({ players: newPlayers})
-  }
+    });
+    this.setState({ players: newPlayers });
+  };
 
   handleModalClose = () => {
     let playersCopy = this.state.players;
-    console.log('old players');
-    console.log(playersCopy);
+
     for (let i = 0; i < playersCopy.length; i++) {
       playersCopy[i].clicked = false;
     }
-    console.log('reset players!');
-    console.log(playersCopy);
 
     this.setState({
+      modalOpen: false,
       gameOver: false,
       numClicked: 0,
       players: playersCopy
     });
-
   };
 
   render() {
     return (
-      <div className="row">
-        <div className="col-md-12 text-center">
-          <h1>Current Score: {this.state.numClicked} </h1>
-          <h1>Top Score: {this.state.topScore} </h1>
-        </div>
-        <div className="col-md-10  mx-auto game-board">
+      <Container >
+        <Row className="game-container">
+          <Col md="2" />
+          <Col md="4">
+            <h3 className="text-center">Clicks: {this.state.numClicked} </h3>
+          </Col>
+          <Col md="4" justifyContentCentered>
+            <h3 className="text-center">Top Score: {this.state.topScore} </h3>
+          </Col>
+        </Row>
+        <Col md="8" mx="auto" className="game-board">
           <ShowPlayers
             players={this.state.players}
             playerClicked={this.handlePlayerClicked}
             updateCount={this.handleClickCount}
             gameLost={this.gameLost}
           />
-        </div>
+        </Col>
 
-        <Modal show={this.state.gameOver} onHide={this.handleModalClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Game Over</Modal.Title>
+        <Modal
+          centered
+          show={this.state.modalOpen}
+          onHide={this.handleModalClose}
+        >
+          <Modal.Header className="modal-header" closeButton>
+            <Modal.Title centered>Game Over</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <h3>{this.state.gameWon ? "You Won!" : "You Lost!"}</h3>
+            {this.state.modalContent}
+ 
           </Modal.Body>
         </Modal>
-      </div>
+      </Container>
     );
   }
 }

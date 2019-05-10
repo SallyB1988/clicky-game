@@ -6,10 +6,23 @@
 }
 
 .modal-header {
-  background-color: rgba(24, 57, 148, 0.904);
-}
+  background-color: #125999}
 
 .game-container {
-  background-color: green;
+  background-color: rgba(64, 165, 69, 0.801);
   padding: 10px 30px;
+}
+
+.instructions {
+  position: relative;
+  bottom: 140%;
+  left: 320%;
+}
+
+@media screen and (max-width: 768px) {
+  .instructions {
+    bottom: 0%;
+    left: 0%;
+    margin-bottom: 10px;
+  }
 }

@@ -13,10 +13,6 @@ function PlayerCard(props) {
     <Card bg="info" style={{ width: '10rem', margin: '5px auto' }} onClick={handleClick}>
       <Card.Body>
         <Image className="card-img" src={props.image} />
-
-        <Card.Text>
-          <h2>{props.temp ? "true" : "false"}</h2>
-        </Card.Text>
       </Card.Body>
     </Card>
   );

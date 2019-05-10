@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import PlayerCard from "../PlayerCard";
-import "./style.css";
 
 // ShowPlayers renders a region for displaying cards for game
 function ShowPlayers(props) {

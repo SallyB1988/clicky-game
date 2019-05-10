@@ -9,7 +9,7 @@ function App() {
 return( 
   <Container>
     <Jumbotron className="jumbotron my-0" fluid>
-      <Image fluid src="/images/MarioCardsHeader.png"></Image>
+      <Image fluid src="images/marioCardsHeader.png"></Image>
     </Jumbotron>
     <GameBoard className="gameboard" players={players} />
   </Container>
